@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp13
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int bal = 15000;
+            int i = 0;
+            int cpin = 1234;
+            while(i<3)
+            {
+                Console.WriteLine("enter the pin");
+                i++;
+                int pin = int.Parse(Console.ReadLine());
+                if(pin==cpin)
+                {
+                    i = 4;
+                    Console.WriteLine("press 1 for bal,press 2 for debit,press 3 for credit");
+                    int inp = int.Parse(Console.ReadLine());
+                    switch(inp)
+                    {
+                        case 1:
+                            Console.WriteLine("bal");
+                            break;
+                        case 2:
+                            Console.WriteLine("enter the amt to debit");
+                            int deb = int.Parse(Console.ReadLine());
+                            int netbal = bal - deb;
+                            Console.WriteLine("the available bal is"+netbal);
+                            break;
+                        case 3:
+                            Console.WriteLine("enter the amt to credit");
+                            int credit = int.Parse(Console.ReadLine());
+                            netbal = bal + credit;
+                            Console.WriteLine("the bal is"+ netbal);
+                            break;
+                    }
+                }
+                else if(i==3)
+                {
+                    Console.WriteLine("you have exeeding the max. no. of attempt");
+                }
+                else
+                {
+                    Console.WriteLine("wrong password");
+                    Console.WriteLine(" for retry press 2");
+                   
+                }
+                
+                    
+                    
+            }
+            Console.ReadLine();
+        }
+    }
+}
